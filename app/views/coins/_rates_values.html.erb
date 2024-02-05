@@ -1,0 +1,18 @@
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Precio en US$</th>
+    <th>Ganancia anual en cryptos</th>
+    <th>Ganancia anual en US$</th>
+  </tr>
+  <% rates.each do |rate| %>
+    <tr>
+      <td><%= rate[:crypto] %></td>
+      <td><%= rate[:rate] %></td>
+      <td><%= format_currency(rate[:crypto], rate[:rate], mount)[:crypto] %></td>
+      <td><%= format_currency(rate[:crypto], rate[:rate], mount)[:usd] %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to "Descargar como CSV", search_path(format: :csv) %>

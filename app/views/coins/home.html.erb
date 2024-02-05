@@ -1,0 +1,12 @@
+<h1>Calculadora en Cryptos</h1>
+<%= form_with url: "/search", method: :post do |form| %>
+  <%= form.label :query, "Ingrese monto en US$:" %>
+  <%= form.number_field :query %>
+  <%= form.submit "Calcular Ganancia Anual" %>
+<% end %>
+
+<hr />
+
+<div id="rates_container">
+  <%= render "rates_values", rates: @rates, mount: nil %>
+</div>

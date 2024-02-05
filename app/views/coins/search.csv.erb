@@ -1,0 +1,8 @@
+<%= fields = [:crypto, :rate, :annual_crypto, :annual_usd].join(";") %>
+<% @rates.each do |rate| %>
+<% crypto = rate[:crypto] %>
+<% rate = rate[:rate] %>
+<% annual_crypto = format_currency(crypto, rate, @mount)[:crypto] %>
+<% annual_usd = format_currency(crypto, rate, @mount)[:usd] %>
+<%= [crypto, rate, annual_crypto, annual_usd].join(";") %>
+<% end %>
